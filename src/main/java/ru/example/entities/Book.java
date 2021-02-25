@@ -17,8 +17,6 @@ public class Book {
 
     String title;
 
-    String title_1;
-
     BigDecimal price;
 
     public Book() {
