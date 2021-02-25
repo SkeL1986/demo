@@ -17,7 +17,7 @@ public class Book {
 
     String title;
 
-    BigDecimal price;
+    Integer count;
 
     public Book() {
 
