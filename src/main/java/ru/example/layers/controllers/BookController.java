@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.example.entities.Book;
 import ru.example.layers.services.IBookService;
 
+import java.util.List;
 import java.util.Optional;
 
 @Data
@@ -32,4 +33,30 @@ public class BookController {
             return ResponseEntity.ok("There is no such book with id = " + id);
         }
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteBook(@PathVariable(value = "id") Long id)
+    {
+        bookService.deleteById(id);
+    }
+
+    @GetMapping("/books")
+    public Iterable<Book> findAll()
+    {
+        return bookService.findAll();
+    }
+
+    @GetMapping(value = "/getbytitle/{title}")
+    public Book getByTitle(@PathVariable String title) {
+       Book book = bookService.findByTitle(title);
+
+        if (!book.equals(null)) {
+            return book;
+        }
+        else {
+            return null;
+        }
+    }
+
+
 }

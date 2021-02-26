@@ -6,4 +6,5 @@ import ru.example.entities.Book;
 
 @Repository
 public interface IBookRepository extends CrudRepository<Book, Long> {
+    Book findByTitle(String title);
 }
